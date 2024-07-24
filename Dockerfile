@@ -7,8 +7,14 @@ COPY . /var/www/html/
 # Instale extensões PHP necessárias (se houver)
 # RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Configure o Apache (opcional)
-# ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
+# Configure o Apache
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Habilitar o módulo rewrite
+RUN a2enmod rewrite
+
+# Reiniciar o Apache para aplicar as mudanças
+RUN service apache2 restart
 
 # Exponha a porta 80
 EXPOSE 80
