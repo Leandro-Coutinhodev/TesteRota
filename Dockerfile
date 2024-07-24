@@ -13,8 +13,8 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 # Habilitar o módulo rewrite
 RUN a2enmod rewrite
 
-# Reiniciar o Apache para aplicar as mudanças
-RUN service apache2 restart
-
 # Exponha a porta 80
 EXPOSE 80
+
+# Comando para iniciar o Apache
+CMD ["apache2-foreground"]
