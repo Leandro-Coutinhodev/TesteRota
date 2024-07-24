@@ -1,0 +1,5 @@
+RewriteEngine On 
+# Redireciona todas as requisições para Rotas.php 
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteRule ^(.*)$ Rotas.php [QSA,L]
