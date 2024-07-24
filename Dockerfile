@@ -16,6 +16,8 @@ RUN echo "    DirectoryIndex index.php index.html" >> /etc/apache2/apache2.conf
 RUN echo "    AllowOverride All" >> /etc/apache2/apache2.conf
 RUN echo "</Directory>" >> /etc/apache2/apache2.conf
 
+# Adicionar configuração do VirtualHost 
+COPY 000-default.conf /etc/apache2/sites-available/000-default.conf 
 # Exponha a porta 80
 EXPOSE 80
 
