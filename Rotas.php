@@ -1,11 +1,9 @@
 <?php
-// Obtenha a URL solicitada
+
 $request = $_SERVER['REQUEST_URI'];
 
-// Remova qualquer parâmetro de consulta da URL
 $request = explode('?', $request)[0];
 
-// Defina suas rotas
 switch ($request) {
     case '/' :
         require __DIR__ . '/index.php';
